@@ -581,7 +581,15 @@ input[type="submit"],
 textarea:focus,
 .button,
 .gallery img {
-  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+          transition: all 0.1s ease-in-out;
+}
+
+::-moz-selection,
+::-moz-selection {
+  background: #6e6868;
+  color: #fff;
+  text-shadow: none;
 }
 
 ::-moz-selection,
@@ -1543,7 +1551,8 @@ img.alignright,
   position: absolute;
   left: -9999px;
   opacity: 0;
-  transition: opacity .4s ease-in-out;
+  -webkit-transition: opacity .4s ease-in-out;
+          transition: opacity .4s ease-in-out;
   width: 12.5em;
   z-index: 99;
 }
@@ -2015,6 +2024,48 @@ li.comment {
 /* ==========================================================================
    Posts
    ========================================================================== */
+/* Utility Bar
+--------------------------------------------- */
+.utility-bar {
+  background-color: #605f5f;
+  border-bottom: 1px solid #ddd;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.utility-bar a {
+  color: #ccff33;
+}
+
+.utility-bar a:hover {
+  text-decoration: underline;
+}
+
+.utility-bar-left,
+.utility-bar-right {
+  width: 50%;
+}
+
+.utility-bar-left p,
+.utility-bar-right p {
+  margin-bottom: 0;
+}
+
+.utility-bar-left {
+  float: left;
+}
+
+.utility-bar-right {
+  float: right;
+  text-align: right;
+}
+
+.utility-bar input[type="search"] {
+  background: inherit;
+  padding: 10px 0 0;
+  padding: 1.0rem 0 0;
+}
+
 /* ==========================================================================
    Home Page Template
    ========================================================================== */
@@ -2226,5 +2277,4 @@ body.error404 .search-form {
     page-break-before: avoid;
   }
 }
-
 /*# sourceMappingURL=style.css.map */
