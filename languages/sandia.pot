@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: sandia 1.0\n"
+"Project-Id-Version: ncgen 1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
 "POT-Creation-Date: 2015-05-28 20:42:18+00:00\n"
 "MIME-Version: 1.0\n"
@@ -375,7 +375,7 @@ msgid "All plugins installed and activated successfully. %s"
 msgstr ""
 
 #. Theme Name of the plugin/theme
-msgid "sandia"
+msgid "ncgen"
 msgstr ""
 
 #. Theme URI of the plugin/theme

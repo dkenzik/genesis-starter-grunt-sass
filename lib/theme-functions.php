@@ -10,14 +10,14 @@ Backend Functions
  * Must be loaded before Genesis Framework /lib/init.php is included.
  * Translations can be filed in the /languages/ directory.
  */
-function sandia_i18n() {
-	load_child_theme_textdomain( 'sandia', get_template_directory() . '/languages' );
+function ncgen_i18n() {
+	load_child_theme_textdomain( 'ncgen', get_template_directory() . '/languages' );
 }
 
 /**
  * Remove Genesis Theme Settings Metaboxes
  */
-function sandia_remove_genesis_metaboxes( $_genesis_theme_settings_pagehook ) {
+function ncgen_remove_genesis_metaboxes( $_genesis_theme_settings_pagehook ) {
 	//remove_meta_box( 'genesis-theme-settings-feeds',      $_genesis_theme_settings_pagehook, 'main' );
 	//remove_meta_box( 'genesis-theme-settings-header',     $_genesis_theme_settings_pagehook, 'main' );
 	//remove_meta_box( 'genesis-theme-settings-nav',        $_genesis_theme_settings_pagehook, 'main' );
@@ -31,19 +31,19 @@ function sandia_remove_genesis_metaboxes( $_genesis_theme_settings_pagehook ) {
 /**
  * Reposition Genesis Layout Metabox
  */
-function sandia_add_inpost_layout_box() {
+function ncgen_add_inpost_layout_box() {
 	if ( ! current_theme_supports( 'genesis-inpost-layouts' ) )
 		return;
 	foreach ( (array) get_post_types( array( 'public' => true ) ) as $type ) {
 		if ( post_type_supports( $type, 'genesis-layouts' ) )
-			add_meta_box( 'genesis_inpost_layout_box', __( 'Layout Settings', 'genesis', 'sandia' ), 'genesis_inpost_layout_box', $type, 'normal', 'low' );
+			add_meta_box( 'genesis_inpost_layout_box', __( 'Layout Settings', 'genesis', 'ncgen' ), 'genesis_inpost_layout_box', $type, 'normal', 'low' );
 	}
 }
 
 /**
  * Remove Dashboard Meta Boxes
  */
-function sandia_remove_dashboard_widgets() {
+function ncgen_remove_dashboard_widgets() {
 	global $wp_meta_boxes;
 	// unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
 	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);
@@ -58,7 +58,7 @@ function sandia_remove_dashboard_widgets() {
 /**
  * Change Admin Menu Order
  */
-function sandia_custom_menu_order( $menu_ord ) {
+function ncgen_custom_menu_order( $menu_ord ) {
 	if ( !$menu_ord ) return true;
 	return array(
 		// 'index.php', // Dashboard
@@ -82,14 +82,14 @@ function sandia_custom_menu_order( $menu_ord ) {
 /**
  * Hide Admin Areas that are not used
  */
-function sandia_remove_menu_pages() {
+function ncgen_remove_menu_pages() {
 	// remove_menu_page('link-manager.php');
 }
 
 /**
  * Remove default link for images
  */
-function sandia_imagelink_setup() {
+function ncgen_imagelink_setup() {
 	$image_set = get_option( 'image_default_link_type' );
 	if ($image_set !== 'none') {
 		update_option( 'image_default_link_type', 'none' );
@@ -99,12 +99,12 @@ function sandia_imagelink_setup() {
 /**
  * Add SVG support in media uploader.
  */
-function sandia_enable_svg_upload( $mimes ) {
+function ncgen_enable_svg_upload( $mimes ) {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
 }
 
-function sandia_customize_tinymce( $init ) {
+function ncgen_customize_tinymce( $init ) {
 	$init['block_formats'] = 'Paragraph=p; Heading 2=h2; Heading 3=h3; Heading 4=h4; Heading 5=h5; Heading 6=h6; pre=pre; address=address';
 	return $init;
 }
@@ -117,14 +117,14 @@ Frontend
 /**
  * Load apple touch icon in header
  */
-function sandia_apple_touch_icon() {
+function ncgen_apple_touch_icon() {
 	echo '<link rel="apple-touch-icon" href="' . get_stylesheet_directory_uri() . '/assets/images/apple-touch-icon.png" />' . "\n";
 }
 
 /**
  * Favicon
  */
-function sandia_favicon_filter() {
+function ncgen_favicon_filter() {
 	return get_stylesheet_directory_uri() . '/assets/images/favicon.ico';
 }
 
@@ -134,7 +134,7 @@ function sandia_favicon_filter() {
  * By default, WordPress renders all SVG files uploaded through the Media
  * Uploader with both width and height at "1".
  */
-function sandia_resize_svg( $output ) {
+function ncgen_resize_svg( $output ) {
 
 	// Replace width of "1" with a new width of "100%" and height of "1"
     // with a new height of "auto"
@@ -148,7 +148,7 @@ function sandia_resize_svg( $output ) {
 /**
  * Footer
  */
-function sandia_footer() {
+function ncgen_footer() {
 	echo '<div class="one-half first" id="footer-left">' . wpautop( genesis_get_option( 'footer-left', 'child-settings' ) ) . '</div>';
 	echo '<div class="one-half" id="footer-right">' . wpautop( genesis_get_option( 'footer-right', 'child-settings' ) ) . '</div>';
 }
@@ -156,33 +156,33 @@ function sandia_footer() {
 /**
  * Enqueue Web Fonts
  */
-function sandia_web_fonts() {
+function ncgen_web_fonts() {
 	$font_base_url = '//fonts.googleapis.com/css';
 	$font_query     = '?family=Lato:300,400,700,400italic';
-	wp_enqueue_style( 'sandia-web-fonts', $font_base_url . $font_query );
+	wp_enqueue_style( 'ncgen-web-fonts', $font_base_url . $font_query );
 }
 
 /**
  * Enqueue Script
  */
-function sandia_scripts() {
+function ncgen_scripts() {
 	if ( !is_admin() ) {
 		// Custom plugins and scripts
-		wp_enqueue_script( 'customscripts', get_stylesheet_directory_uri() . '/assets/js/sandia.min.js', array('jquery'), NULL, true );
+		wp_enqueue_script( 'customscripts', get_stylesheet_directory_uri() . '/assets/js/ncgen.min.js', array('jquery'), NULL, true );
 	}
 }
 
 /**
  * Dequeue Genesis skip links JS
  */
-function sandia_dequeue_skip_links() {
+function ncgen_dequeue_skip_links() {
 	wp_dequeue_script( 'skip-links' );
 }
 
 /**
  * Remove Query Strings From Static Resources
  */
-function sandia_remove_script_version( $src ){
+function ncgen_remove_script_version( $src ){
 	$parts = explode( '?ver', $src );
 	return $parts[0];
 }
@@ -190,55 +190,55 @@ function sandia_remove_script_version( $src ){
 /**
  * Define custom post type capabilities for use with Members
  */
-function sandia_add_post_type_caps() {
-	// sandia_add_capabilities( 'portfolio' );
+function ncgen_add_post_type_caps() {
+	// ncgen_add_capabilities( 'portfolio' );
 }
 
 /**
  * Add Continue Reading links to posts on archives and blog index pages
  */
-function sandia_show_continue_reading_link() {
+function ncgen_show_continue_reading_link() {
 	if ( is_home() || is_archive() ) {
-		printf( '<a href="%s" rel="bookmark" class="continue-reading">%s<span class="screen-reader-text"> %s</span></a>', get_permalink(), __( 'Continue Reading', 'sandia'), get_the_title() );
+		printf( '<a href="%s" rel="bookmark" class="continue-reading">%s<span class="screen-reader-text"> %s</span></a>', get_permalink(), __( 'Continue Reading', 'ncgen'), get_the_title() );
 	}
 }
 
 /**
  * Adds the title to the "read more" link in archives
  */
-function sandia_read_more_link( $link ) {
+function ncgen_read_more_link( $link ) {
 	return '...<br /> <a href="'. get_permalink() .'" class="more-link">' .
-	       __( 'Read more', 'genesis', 'sandia' ) . '<span class="more-link-title screen-reader-text"> ' .
-	       __( 'about ', 'sandia' ) . get_the_title() .
+	       __( 'Read more', 'genesis', 'ncgen' ) . '<span class="more-link-title screen-reader-text"> ' .
+	       __( 'about ', 'ncgen' ) . get_the_title() .
 	       "</span></a>";
 }
 
 /**
  * Adds the title to the "older comments" link in comment navigation
  */
-function sandia_prev_comments_link_text( $link ) {
-	return sprintf( '%s<span class="screen-reader-text"> %s %s</span>', __( '&laquo; Older Comments', 'sandia' ) , __( 'on', 'sandia'), get_the_title() );
+function ncgen_prev_comments_link_text( $link ) {
+	return sprintf( '%s<span class="screen-reader-text"> %s %s</span>', __( '&laquo; Older Comments', 'ncgen' ) , __( 'on', 'ncgen'), get_the_title() );
 }
 
 /**
  * Adds the title to the "newer comments" link in comment navigation
  */
-function sandia_next_comments_link_text( $link ) {
-	return sprintf( '%s<span class="screen-reader-text"> %s %s</span>', __( 'Newer Comments &raquo;', 'sandia' ), __( 'on', 'sandia'), get_the_title() );
+function ncgen_next_comments_link_text( $link ) {
+	return sprintf( '%s<span class="screen-reader-text"> %s %s</span>', __( 'Newer Comments &raquo;', 'ncgen' ), __( 'on', 'ncgen'), get_the_title() );
 }
 
 /**
  * Bind JS handlers to make customizer preview reload changes asynchronously
  */
-function sandia_customize_preview_js() {
-	wp_enqueue_script( 'sandia_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20150325', true );
+function ncgen_customize_preview_js() {
+	wp_enqueue_script( 'ncgen_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20150325', true );
 }
 
 /**
  * Change 404 page title
  */
-function sandia_404_entry_title() {
-	return __( 'Page Not Found', 'sandia' );
+function ncgen_404_entry_title() {
+	return __( 'Page Not Found', 'ncgen' );
 
 }
 
@@ -250,6 +250,6 @@ Misc Theme Functions
 /**
  * Filter Yoast SEO Metabox Priority
  */
-function sandia_filter_yoast_seo_metabox() {
+function ncgen_filter_yoast_seo_metabox() {
 	return 'low';
 }

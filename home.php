@@ -3,7 +3,7 @@
  * Template Name: Home
  *
  * Description: A page template to show the blog index
- * @package sandia
+ * @package ncgen
  */
 
 // Get rid of blog index page title

@@ -2,7 +2,7 @@
 /**
  * This is the homepage template file.
  *
- * @package  sandia
+ * @package  ncgen
  * @since    1.0.0
  */
 

@@ -113,7 +113,7 @@ module.exports = function(grunt) {
 					  '!assets/js/src/customizer.js',
 					  'assets/js/lib/*.js'
 					 ],
-				dest: 'assets/js/sandia.min.js'
+				dest: 'assets/js/ncgen.min.js'
 			}
 		},
 
@@ -126,12 +126,12 @@ module.exports = function(grunt) {
 			},
 			main: {
 				options: {
-					sourceMap: 'assets/js/sandia.js.map',
-					sourceMappingURL: 'sandia.js.map',
+					sourceMap: 'assets/js/ncgen.js.map',
+					sourceMappingURL: 'ncgen.js.map',
 					sourceMapPrefix: 2
 				},
-				src: 'assets/js/sandia.min.js',
-				dest: 'assets/js/sandia.min.js'
+				src: 'assets/js/ncgen.min.js',
+				dest: 'assets/js/ncgen.min.js'
 			}
 		},
 		copy: {
@@ -184,7 +184,7 @@ module.exports = function(grunt) {
 		},
 		addtextdomain: {
 			options: {
-				textdomain: 'sandia'
+				textdomain: 'ncgen'
 			},
 			target: {
 				files: {
@@ -206,7 +206,7 @@ module.exports = function(grunt) {
 					include: [],                      // List of files or directories to include.
 					mainFile: '',                     // Main project file.
 					potComments: '',                  // The copyright at the beginning of the POT file.
-					potFilename: 'sandia.pot',        // Name of the POT file.
+					potFilename: 'ncgen.pot',        // Name of the POT file.
 					potHeaders: {
 						poedit: true,                 // Includes common Poedit headers.
 						'x-poedit-keywordslist': true // Include a list of all possible gettext functions.

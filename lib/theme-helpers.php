@@ -7,7 +7,7 @@ Theme Helpers
 /**
  * Add capabilities for a custom post type
  */
-function sandia_add_capabilities( $posttype ) {
+function ncgen_add_capabilities( $posttype ) {
 	// gets the author role
 	$role = get_role( 'administrator' );
 
@@ -27,8 +27,8 @@ function sandia_add_capabilities( $posttype ) {
 /**
  * Shortcode to display current year and company name for copyright
  */
-function sandia_shortcode_copyright() {
+function ncgen_shortcode_copyright() {
 	$copyright = '&copy; ' . date( 'Y' ) . ' ' . esc_html( get_bloginfo( 'name' ) );
 	return $copyright;
 }
-add_shortcode( 'copyright', 'sandia_shortcode_copyright' );
+add_shortcode( 'copyright', 'ncgen_shortcode_copyright' );

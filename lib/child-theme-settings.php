@@ -5,7 +5,7 @@
  * This file registers all of this child theme's specific Theme Settings, accessible from
  * Genesis > Child Theme Settings.
  *
- * @package     Sandia_Genesis_Child
+ * @package     ncgen_Genesis_Child
  * @since       1.0.0
  * @link        https://github.com/billerickson/BE-Genesis-Child
  * @author      Bill Erickson <bill@billerickson.net>
@@ -20,7 +20,7 @@
  *
  * @since 1.0.0
  *
- * @package Sandia_Genesis_Child
+ * @package ncgen_Genesis_Child
  * @subpackage Child_Theme_Settings
  */
 class Child_Theme_Settings extends Genesis_Admin_Boxes {
@@ -38,7 +38,7 @@ class Child_Theme_Settings extends Genesis_Admin_Boxes {
 		$menu_ops = array(
 			'submenu' => array(
 				'parent_slug' => 'genesis',
-				'page_title'  => 'Sandia - Theme Settings',
+				'page_title'  => 'ncgen - Theme Settings',
 				'menu_title'  => 'Child Theme Settings',
 			)
 		);
@@ -132,8 +132,8 @@ class Child_Theme_Settings extends Genesis_Admin_Boxes {
  * Add the Theme Settings Page
  * @since 1.0.0
  */
-function sandia_add_child_theme_settings() {
+function ncgen_add_child_theme_settings() {
 	global $_child_theme_settings;
 	$_child_theme_settings = new Child_Theme_Settings;
 }
-add_action( 'genesis_admin_menu', 'sandia_add_child_theme_settings' );
+add_action( 'genesis_admin_menu', 'ncgen_add_child_theme_settings' );

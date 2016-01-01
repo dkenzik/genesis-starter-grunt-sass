@@ -4,7 +4,7 @@
  * Theme internationalization
  */
 
-add_action( 'after_setup_theme', 'sandia_i18n' );
+add_action( 'after_setup_theme', 'ncgen_i18n' );
 
 /**
  * Theme Setup
@@ -93,11 +93,11 @@ function child_theme_setup() {
 	add_editor_style( 'editor-style.css' );
 
 	// Remove Genesis Theme Settings Metaboxes
-	add_action( 'genesis_theme_settings_metaboxes', 'sandia_remove_genesis_metaboxes' );
+	add_action( 'genesis_theme_settings_metaboxes', 'ncgen_remove_genesis_metaboxes' );
 
 	// Reposition Genesis Layout Settings Metabox
 	remove_action( 'admin_menu', 'genesis_add_inpost_layout_box' );
-	add_action( 'admin_menu', 'sandia_add_inpost_layout_box' );
+	add_action( 'admin_menu', 'ncgen_add_inpost_layout_box' );
 
 	// Setup Child Theme Settings
 	include_once( CHILD_DIR . '/lib/child-theme-settings.php' );
@@ -115,27 +115,27 @@ function child_theme_setup() {
 	add_theme_support( 'custom-background' );
 
 	// Add support for SVG in media uploader
-	add_filter( 'upload_mimes', 'sandia_enable_svg_upload' );
-	add_filter( 'genesis_get_image', 'sandia_resize_svg' );
+	add_filter( 'upload_mimes', 'ncgen_enable_svg_upload' );
+	add_filter( 'genesis_get_image', 'ncgen_resize_svg' );
 
 	// Remove Dashboard Meta Boxes
-	add_action( 'wp_dashboard_setup', 'sandia_remove_dashboard_widgets' );
+	add_action( 'wp_dashboard_setup', 'ncgen_remove_dashboard_widgets' );
 
 	// Change Admin Menu Order
-	add_filter( 'custom_menu_order', 'sandia_custom_menu_order' );
-	add_filter( 'menu_order', 'sandia_custom_menu_order' );
+	add_filter( 'custom_menu_order', 'ncgen_custom_menu_order' );
+	add_filter( 'menu_order', 'ncgen_custom_menu_order' );
 
 	// Hide Admin Areas that are not used
-	add_action( 'admin_menu', 'sandia_remove_menu_pages' );
+	add_action( 'admin_menu', 'ncgen_remove_menu_pages' );
 
 	// Remove default link for images
-	add_action( 'admin_init', 'sandia_imagelink_setup', 10 );
+	add_action( 'admin_init', 'ncgen_imagelink_setup', 10 );
 
 	//* Remove address and H1 from TinyMCE editor for better accessibility
-	add_filter( 'tiny_mce_before_init', 'sandia_customize_tinymce' );
+	add_filter( 'tiny_mce_before_init', 'ncgen_customize_tinymce' );
 
 	// Define custom post type capabilities for use with Members
-	// add_action( 'admin_init', 'sandia_add_post_type_caps' );
+	// add_action( 'admin_init', 'ncgen_add_post_type_caps' );
 
 
 	/****************************************
@@ -155,27 +155,27 @@ function child_theme_setup() {
 	add_theme_support( 'genesis-responsive-viewport' );
 
 	// Load Apple touch icon in header
-	add_action( 'wp_head', 'sandia_apple_touch_icon', 9 );
+	add_action( 'wp_head', 'ncgen_apple_touch_icon', 9 );
 
 	// Remove Edit link
 	add_filter( 'genesis_edit_post_link', '__return_false' );
 
 	// Remove Default Genesis footer and add custom footer
 	remove_action( 'genesis_footer', 'genesis_do_footer' );
-	add_action( 'genesis_footer', 'sandia_footer' );
+	add_action( 'genesis_footer', 'ncgen_footer' );
 
 	// Enqueue Scripts
-	add_action( 'wp_enqueue_scripts', 'sandia_scripts' );
+	add_action( 'wp_enqueue_scripts', 'ncgen_scripts' );
 
 	// Enqueue Web Fonts
-	add_action( 'wp_enqueue_scripts', 'sandia_web_fonts' );
+	add_action( 'wp_enqueue_scripts', 'ncgen_web_fonts' );
 
 	// Dequeue skip-links JS from Genesis since this theme includes it in its own JS
-	add_action('wp_print_scripts', 'sandia_dequeue_skip_links' );
+	add_action('wp_print_scripts', 'ncgen_dequeue_skip_links' );
 
 	// Remove Query Strings From Static Resources
-	add_filter( 'script_loader_src', 'sandia_remove_script_version', 15, 1 );
-	add_filter( 'style_loader_src', 'sandia_remove_script_version', 15, 1 );
+	add_filter( 'script_loader_src', 'ncgen_remove_script_version', 15, 1 );
+	add_filter( 'style_loader_src', 'ncgen_remove_script_version', 15, 1 );
 
 	// Remove the Site Description
 	remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
@@ -192,26 +192,26 @@ function child_theme_setup() {
 	remove_theme_support( 'genesis-seo-settings-menu' );
 
 	// Set favicon
-	add_filter( 'genesis_pre_load_favicon', 'sandia_favicon_filter' );
+	add_filter( 'genesis_pre_load_favicon', 'ncgen_favicon_filter' );
 
 	// Load customizer changes asynchronously
-	add_action( 'customize_preview_init', 'sandia_customize_preview_js' );
+	add_action( 'customize_preview_init', 'ncgen_customize_preview_js' );
 
 	// Change 404 page title
-	add_filter( 'genesis_404_entry_title', 'sandia_404_entry_title' );
+	add_filter( 'genesis_404_entry_title', 'ncgen_404_entry_title' );
 
 	/****************************************
 	Accessibility
 	 *****************************************/
 
 	// Add the title to "read more" links
-	add_filter('get_the_content_more_link', 'sandia_read_more_link');
-	add_filter('the_content_more_link', 'sandia_read_more_link');
+	add_filter('get_the_content_more_link', 'ncgen_read_more_link');
+	add_filter('the_content_more_link', 'ncgen_read_more_link');
 	// Add a "continue reading" link to posts on archives and blog index pages
-	add_action( 'genesis_entry_footer', 'sandia_show_continue_reading_link', 6 );
+	add_action( 'genesis_entry_footer', 'ncgen_show_continue_reading_link', 6 );
 	// Add post title to comment navigation links
-	add_filter('genesis_prev_comments_link_text', 'sandia_prev_comments_link_text');
-	add_filter('genesis_next_comments_link_text', 'sandia_next_comments_link_text');
+	add_filter('genesis_prev_comments_link_text', 'ncgen_prev_comments_link_text');
+	add_filter('genesis_next_comments_link_text', 'ncgen_next_comments_link_text');
 
 
 	/****************************************
@@ -228,7 +228,7 @@ function child_theme_setup() {
 	require_once( CHILD_DIR . '/lib/class-tgm-plugin-activation.php' );
 	require_once( CHILD_DIR . '/lib/theme-require-plugins.php' );
 
-	add_action( 'tgmpa_register', 'sandia_register_required_plugins' );
+	add_action( 'tgmpa_register', 'ncgen_register_required_plugins' );
 
 }
 
@@ -238,4 +238,4 @@ Misc Theme Functions
 *****************************************/
 
 // Filter Yoast SEO Metabox Priority
-add_filter( 'wpseo_metabox_prio', 'sandia_filter_yoast_seo_metabox' );
+add_filter( 'wpseo_metabox_prio', 'ncgen_filter_yoast_seo_metabox' );

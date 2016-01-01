@@ -3,7 +3,7 @@
 /**
  * Register the required plugins for this theme.
  */
-function sandia_register_required_plugins() {
+function ncgen_register_required_plugins() {
 
 	$plugins = array(
 
@@ -25,7 +25,7 @@ function sandia_register_required_plugins() {
 	);
 
 	// Change this to your theme text domain, used for internationalising strings
-	$theme_text_domain = 'sandia';
+	$theme_text_domain = 'ncgen';
 
 
 	/**
