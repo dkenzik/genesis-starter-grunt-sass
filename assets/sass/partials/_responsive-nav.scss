@@ -9,6 +9,7 @@
 
 // Default to mobile nav below 768px
 @media only screen and (max-width: 47.9375em) {
+	/** Unused
 	.menu-toggle,
 	.sub-menu-toggle {
 		display: block;
@@ -137,6 +138,7 @@
 	.nav-primary .current-menu-item > a {
 		color: #333;
 	}
+	**/
 }
 
 /* Navigation toggles

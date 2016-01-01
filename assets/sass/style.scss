@@ -30,7 +30,7 @@ Template: genesis
 @import "partials/footer";
 
 // Menus, Page and Post styles
-//@import "partials/responsive-nav";
+@import "partials/responsive-nav";
 @import "partials/off-canvas";
 @import "partials/menus";
 @import "partials/page-post";
