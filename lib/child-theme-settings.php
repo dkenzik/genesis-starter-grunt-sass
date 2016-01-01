@@ -58,8 +58,8 @@ class Child_Theme_Settings extends Genesis_Admin_Boxes {
 
 		// Set the default values
 		$default_settings = array(
-			'footer-left'   => 'Copyright &copy; ' . date( 'Y' ) . '. All Rights Reserved',
-			'footer-right' => 'Site by <a href="http://www.sheelahb.com" rel="nofollow">Sheelah Brennan</a>',
+			'footer-left'   => 'Copyright &copy; ' . esc_html( bloginfo('name') ) . ' - ' . date( 'Y' ) . '. All Rights Reserved',
+			'footer-right' => 'Developed and Hosted by <a target="_blank" href="http://netcrafters.com" rel="nofollow">NetCrafters Interactive</a>',
 		);
 
 		// Create the Admin Page
@@ -118,10 +118,10 @@ class Child_Theme_Settings extends Genesis_Admin_Boxes {
 	 */
 	function footer_metabox() {
 
-	echo '<p><strong>Footer Left:</strong></p>';
+	echo '<p><strong>Theme Footer Left:</strong></p>';
 	wp_editor( $this->get_field_value( 'footer-left' ), $this->get_field_id( 'footer-left' ), array( 'textarea_rows' => 5 ) );
 
-	echo '<p><strong>Footer Right:</strong></p>';
+	echo '<p><strong>Theme Footer Right:</strong></p>';
 	wp_editor( $this->get_field_value( 'footer-right' ), $this->get_field_id( 'footer-right' ), array( 'textarea_rows' => 5 ) );
 	}
 

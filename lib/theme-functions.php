@@ -83,7 +83,8 @@ function ncgen_custom_menu_order( $menu_ord ) {
  * Hide Admin Areas that are not used
  */
 function ncgen_remove_menu_pages() {
-	// remove_menu_page('link-manager.php');
+  remove_menu_page('link-manager.php');
+  remove_menu_page( 'edit-comments.php' );
 }
 
 /**
