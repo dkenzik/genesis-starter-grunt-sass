@@ -68,8 +68,8 @@ function child_theme_setup() {
 	);
 
 	// Sidebars
-	unregister_sidebar( 'sidebar-alt' );
-	//add_theme_support( 'genesis-footer-widgets', 4 );
+	// unregister_sidebar( 'sidebar-alt' );
+	add_theme_support( 'genesis-footer-widgets', 3 );
 
 	// Execute shortcodes in widgets
 	// add_filter( 'widget_text', 'do_shortcode' );
@@ -77,7 +77,7 @@ function child_theme_setup() {
 	// Remove Unused Page Layouts
 	genesis_unregister_layout( 'content-sidebar-sidebar' );
 	genesis_unregister_layout( 'sidebar-sidebar-content' );
-	genesis_unregister_layout( 'sidebar-content-sidebar' );
+	//genesis_unregister_layout( 'sidebar-content-sidebar' );
 
 	// Remove Unused User Settings
 	// remove_action( 'show_user_profile', 'genesis_user_options_fields' );
