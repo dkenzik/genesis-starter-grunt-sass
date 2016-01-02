@@ -1997,24 +1997,6 @@ li.comment {
 --------------------------------------------- */
 /* Navigation toggles
 --------------------------------------------- */
-@media only screen and (min-width: 48em) {
-  .sub-menu-toggle,
-  .menu-toggle {
-    display: none;
-  }
-  .nav-primary {
-    display: block !important;
-  }
-  .menu .menu-item:focus {
-    position: static;
-  }
-  .menu .menu-item > a:focus + ul.sub-menu,
-  .menu .menu-item.genwpacc-hover > ul.sub-menu {
-    left: auto;
-    opacity: 1;
-  }
-}
-
 /**
  *  Currently uses Superside Me - http://robincornett.com/downloads/superside-me/
  */
@@ -2030,7 +2012,14 @@ li.comment {
   background-color: #605f5f;
   border-bottom: 1px solid #ddd;
   color: #fff;
-  padding: 10px 0;
+  padding: 8px 4%;
+}
+
+@media only screen and (max-width: 62em) {
+  .utility-bar .wrap {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .utility-bar a {
