@@ -973,6 +973,27 @@ th {
 }
 
 @media only screen and (min-width: 62em) {
+  .content-sidebar-sidebar .content-sidebar-wrap,
+  .sidebar-content-sidebar .content-sidebar-wrap,
+  .sidebar-sidebar-content .content-sidebar-wrap {
+    width: 80%;
+    float: right;
+  }
+  .content-sidebar-sidebar .content-sidebar-wrap .content,
+  .sidebar-content-sidebar .content-sidebar-wrap .content,
+  .sidebar-sidebar-content .content-sidebar-wrap .content {
+    width: 70%;
+    float: left;
+  }
+  .content-sidebar-sidebar .content-sidebar-wrap .sidebar,
+  .sidebar-content-sidebar .content-sidebar-wrap .sidebar,
+  .sidebar-sidebar-content .content-sidebar-wrap .sidebar {
+    width: 28%;
+  }
+  .sidebar.sidebar-secondary {
+    width: 18%;
+    float: left;
+  }
   .content {
     float: right;
     width: 65%;

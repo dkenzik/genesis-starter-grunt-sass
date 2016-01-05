@@ -539,7 +539,34 @@ th {
 	overflow: hidden;
 }
 
+
+
+// Support sidebar-content-sidebar
 @media only screen and (min-width: $screen-md) {
+
+	.content-sidebar-sidebar .content-sidebar-wrap,
+	.sidebar-content-sidebar .content-sidebar-wrap,
+	.sidebar-sidebar-content .content-sidebar-wrap {
+	  
+	  width: 80%;
+	  float: right;
+
+	  .content {
+			width: 70%;
+			float: left;
+	  }
+	  
+	  .sidebar {
+	  	width: 28%;
+	  }
+			
+	}
+
+	.sidebar.sidebar-secondary {
+	  width: 18%;
+	  float: left;
+	}
+
 	.content {
 		float: right;
 		width: 65%;
@@ -570,6 +597,7 @@ th {
 	.full-width-content .content {
 		width: 100%;
 	}
+
 }
 
 /* ### Primary Sidebar */
@@ -587,6 +615,8 @@ th {
 		float: left;
 	}
 }
+
+
 
 
 /* ## Column Classes
