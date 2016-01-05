@@ -9,6 +9,12 @@ genesis_set_default_layout( 'sidebar-content' );
 
 // Swap sidebars
 add_action( 'genesis_after_header', 'change_sidebar_order' );
+
+// Reposition the breadcrumbs
+remove_action( 'genesis_before_loop', 'genesis_do_breadcrumbs' );
+add_action( 'genesis_before_content_sidebar_wrap', 'genesis_do_breadcrumbs' );
+
+
 /**
  * Swap Primary and Secondary Sidebars on Sidebar-Sidebar-Content
  *
