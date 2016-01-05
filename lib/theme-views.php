@@ -7,6 +7,34 @@
 // Change default layout
 genesis_set_default_layout( 'sidebar-content' );
 
+// Swap sidebars
+add_action( 'genesis_after_header', 'change_sidebar_order' );
+/**
+ * Swap Primary and Secondary Sidebars on Sidebar-Sidebar-Content
+ *
+ * @author Bill Erickson
+ * @link http://www.billerickson.net/switch-genesis-sidebars/
+ */
+function change_sidebar_order() {
+
+  $site_layout = genesis_site_layout();
+
+  if ( 'sidebar-content-sidebar' == $site_layout ) {
+    // Remove the Primary Sidebar from the Primary Sidebar area.
+    remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
+
+    // Remove the Secondary Sidebar from the Secondary Sidebar area.
+    remove_action( 'genesis_sidebar_alt', 'genesis_do_sidebar_alt' );
+
+    // Place the Secondary Sidebar into the Primary Sidebar area.
+    add_action( 'genesis_sidebar', 'genesis_do_sidebar_alt' );
+
+    // Place the Primary Sidebar into the Secondary Sidebar area.
+    add_action( 'genesis_sidebar_alt', 'genesis_do_sidebar' );
+  } 
+
+}
+
 // Setup Utility Bar
 genesis_register_sidebar( array(
   'id' => 'utility-bar-left',
