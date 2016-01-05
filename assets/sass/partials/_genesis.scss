@@ -552,19 +552,26 @@ th {
 	  float: right;
 
 	  .content {
-			width: 70%;
+			width: 75.1%;
 			float: left;
 	  }
 	  
 	  .sidebar {
-	  	width: 28%;
+	  	width: 24.3%;
 	  }
-			
+	
+		.sidebar .widget {
+			margin-bottom: .405em;
+		}
+
 	}
 
 	.sidebar.sidebar-secondary {
-	  width: 18%;
+	  width: 19.5%;
 	  float: left;
+	  .widget {
+	  	margin-bottom: .405em;
+	  }
 	}
 
 	.content {
@@ -574,24 +581,24 @@ th {
 
 	.content-sidebar .content {
 		float: left;
-		width: 65%;
+		width: 73%;
 	}
 
 	.content-sidebar .sidebar {
 		float: right;
-		width: 31%;
-		margin-left: 4%;
+		width: 25.666%;
+		margin-left: 1em;
 	}
 
 	.sidebar-content .content {
 		float: right;
-		width: 65%;
+		width: 73%;
 	}
 
 	.sidebar-content .sidebar {
 		float: left;
-		width: 31%;
-		margin-right: 4%;
+		width: 25.666%;
+		margin-right: 1em;
 	}
 
 	.full-width-content .content {
@@ -615,7 +622,6 @@ th {
 		float: left;
 	}
 }
-
 
 
 
@@ -1044,7 +1050,7 @@ img.alignright,
 	width: 100%;
 	@media only screen and (min-width: $screen-sm) {
 		float: left;
-		padding: 1.5em 0;
+		padding: 0;
 		width: 30%;
 	}
 }
@@ -1501,7 +1507,7 @@ li.comment {
 	background-color: $white;
 	margin-bottom: 1em;
 	@media only screen and (min-width: $screen-sm) {
-		margin-bottom: 2.5em;
+		margin-bottom: 1em;
 	}
 }
 
