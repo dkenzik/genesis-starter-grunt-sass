@@ -73,5 +73,14 @@ function utility_bar() {
   ) );
  
   echo '</div></div>';
- 
+}
+
+// Render hero
+add_action( 'genesis_after_header', 'output_hero');
+function output_hero() {
+  $slider = get_field('slider');
+  // print_r($slider);
+  if(function_exists('soliloquy') && isset($slider->ID)) {
+    soliloquy($slider->ID);
+  }
 }
