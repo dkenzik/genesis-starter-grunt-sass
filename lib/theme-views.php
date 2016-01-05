@@ -4,6 +4,9 @@
  * Custom queries, hooks, etc go here
  */
 
+// Change default layout
+genesis_set_default_layout( 'sidebar-content' );
+
 // Setup Utility Bar
 genesis_register_sidebar( array(
   'id' => 'utility-bar-left',
